@@ -1,16 +1,15 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Layout } from './components';
-import { HomePage, CrewPage, DestinationPage, TechnologyPage } from './pages';
+import { DynamicPage, Layout } from './components';
+import { HomePage, DestinationPage, TechnologyPage } from './pages';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="crew" element={<CrewPage />} />
+        <Route path="*" element={<DynamicPage />} />
         <Route path="destination" element={<DestinationPage />} />
-        <Route path="technology" element={<TechnologyPage />} />
       </Route>
     </Routes>
   );
