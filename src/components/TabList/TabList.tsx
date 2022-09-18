@@ -1,7 +1,7 @@
 import { TabButton } from '../TabButton';
 
 export interface TabListProps {
-  tabs: [];
+  tabs: string[];
 }
 export const TabList = ({ tabs }: TabListProps) => {
   return (
@@ -11,7 +11,12 @@ export const TabList = ({ tabs }: TabListProps) => {
       aria-label="destination list"
     >
       {tabs.map((tab) => (
-        <TabButton key={tab} name={tab} />
+        <TabButton
+          key={tab}
+          name={tab}
+          to={tab.toLowerCase()}
+          id={tab.toLowerCase()}
+        />
       ))}
     </div>
   );
