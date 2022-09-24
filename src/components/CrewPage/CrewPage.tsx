@@ -1,7 +1,26 @@
-export interface CrewPageProps {}
+import { ICrewData } from '../../hook/useData';
 
-export const CrewPage = ({}: CrewPageProps) => {
-  return <div>CrewPage</div>;
+export const CrewPage = ({ name, role, bio, images }: ICrewData) => {
+  return (
+    <>
+      <article
+        className="crew-details flow"
+        id="commander-tab"
+        role="tabpanel"
+        tabIndex={0}
+      >
+        <header className="flow flow--space-small">
+          <h2 className="fs-600 ff-serif uppercase">{role}</h2>
+          <p className="fs-700 uppercase ff-serif">{name}</p>
+        </header>
+        <p>{bio}</p>
+      </article>
+      <picture id="commander-image">
+        <source srcSet={images.webp} type="image/webp" />
+        <img src={images.png} alt="Douglas Hurley" />
+      </picture>
+    </>
+  );
 };
 
 export default CrewPage;
