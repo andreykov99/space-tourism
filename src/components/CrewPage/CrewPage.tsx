@@ -1,6 +1,12 @@
-import { ICrewData } from '../../hook/useData';
+import { useLocation } from 'react-router-dom';
+import { ICrewData, useData } from '../../hook/useData';
 
-export const CrewPage = ({ name, role, bio, images }: ICrewData) => {
+export const CrewPage = () => {
+  const location = useLocation();
+  const { getPageData } = useData();
+  const { name, role, bio, images } = getPageData(
+    location.pathname
+  ) as ICrewData;
   return (
     <>
       <article
