@@ -1,4 +1,5 @@
-import data from './data.json';
+import { useEffect, useState } from 'react';
+import dataJson from './data.json';
 
 export interface IDestinationData {
   name: string;
@@ -32,14 +33,21 @@ export interface ITechnologyData {
 export type pageTypes = 'destination' | 'crew' | 'technology';
 
 export interface IData {
-  description: IDestinationData[];
+  destination: IDestinationData[];
   crew: ICrewData[];
   technology: ITechnologyData[];
 }
 
 export const useData = () => {
+  const [data, setData] = useState<IData | undefined>(undefined);
+
+  useEffect(() => {
+    setData(dataJson);
+  }, []);
+
   const getPages = (pageName: pageTypes) => {
-    return data[pageName];
+    if (data) return data[pageName];
+    throw new Error('something went wrong');
   };
   const getTabs = (pageName: pageTypes) => {
     return getPages(pageName).map(
@@ -48,12 +56,15 @@ export const useData = () => {
   };
   const getPageData = (route: string) => {
     const [, page, name] = route.split('/');
-    const pageDataArr = getPages(page);
-    let index = pageDataArr.findIndex(
-      (item) => item.name.toLowerCase() === name
-    );
-    if (index < 0) index = 0;
-    return pageDataArr[index];
+    if (page === 'destination' || page === 'crew' || page === 'technology') {
+      const pageDataArr = getPages(page);
+      let index = pageDataArr.findIndex(
+        (item) => item.name.toLowerCase() === name
+      );
+      if (index < 0) index = 0;
+      return pageDataArr[index];
+    }
+    throw new Error(`page ${page} not found`);
   };
   return { getTabs, getPageData };
 };
