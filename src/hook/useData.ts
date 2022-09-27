@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import dataJson from './data.json';
 
 export interface IDestinationData {
@@ -39,11 +39,7 @@ export interface IData {
 }
 
 export const useData = () => {
-  const [data, setData] = useState<IData | undefined>(undefined);
-
-  useEffect(() => {
-    setData(dataJson);
-  }, []);
+  const [data, setData] = useState<IData | undefined>(dataJson);
 
   const getPages = (pageName: pageTypes) => {
     if (data) return data[pageName];
