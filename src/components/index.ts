@@ -9,3 +9,5 @@ export * from './CrewLayout';
 export * from './CrewPage';
 export * from './TechnologyLayout';
 export * from './TechnologyPage';
+export * from './NumberIndicators';
+export * from './DotIndicators';

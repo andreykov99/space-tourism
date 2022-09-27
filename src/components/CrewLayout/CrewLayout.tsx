@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { DotIndicators } from '../DotIndicators';
 
 export const CrewLayout = () => {
   return (
@@ -6,7 +7,7 @@ export const CrewLayout = () => {
       <h1 className="numbered-title">
         <span aria-hidden="true">02</span> Meet your crew
       </h1>
-      {/* <DotIndicators /> */}
+      <DotIndicators />
       <Outlet />
     </main>
   );

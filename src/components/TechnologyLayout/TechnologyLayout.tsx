@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { NumberIndicators } from '../NumberIndicators';
 
 export interface TechnologyLayoutProps {}
 
@@ -8,7 +9,7 @@ export const TechnologyLayout = ({}: TechnologyLayoutProps) => {
       <h1 className="numbered-title">
         <span aria-hidden="true">03</span>Space launch 101
       </h1>
-      {/* <NumberIndicators /> */}
+      <NumberIndicators />
       <Outlet />
     </main>
   );

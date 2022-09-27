@@ -9,15 +9,21 @@ export const TechnologyPage = () => {
   ) as ITechnologyData;
   return (
     <>
-      <picture id={'technology-image'}>
-        <img src={images.portrait} alt={'the technology'} />
+      <picture id="technology-image">
+        <img src={images.portrait} alt="the technology" />
       </picture>
       <article
-        className="technology-info flow"
-        id={'technology-tab'}
+        className="technology-description flow"
+        id="technology-tab"
         tabIndex={0}
         role="tabpanel"
-      ></article>
+      >
+        <header className="flow flow--space-small">
+          <h2 className="fs-600 ff-sans uppercase">The terminology...</h2>
+          <p className="fs-700 uppercase ff-serif">{name}</p>
+        </header>
+        <p>{description}</p>
+      </article>
     </>
   );
 };
