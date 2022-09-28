@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { ITechnologyData, useData } from '../../hook/useData';
+import useMatchMedia from '../../hook/useMatchMedia';
 
 export const TechnologyPage = () => {
   const location = useLocation();
@@ -7,10 +8,15 @@ export const TechnologyPage = () => {
   const { name, images, description } = getPageData(
     location.pathname
   ) as ITechnologyData;
+  const { isMobile, isTablet } = useMatchMedia();
   return (
     <>
       <picture id="technology-image">
-        <img src={images.portrait} alt="the technology" />
+        {isMobile || isTablet ? (
+          <img src={images.landscape} alt="the technology" />
+        ) : (
+          <img src={images.portrait} alt="the technology" />
+        )}
       </picture>
       <article
         className="technology-description flow"
