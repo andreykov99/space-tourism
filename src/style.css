@@ -250,6 +250,8 @@ select {
 
 .grid-container--technology > .number-indicators {
   grid-area: tabs;
+  display: flex;
+  gap: 1rem;
 }
 
 .grid-container--technology > .technology-description {
@@ -352,6 +354,10 @@ select {
 
   .grid-container--technology > picture {
     max-width: 90%;
+  }
+
+  .grid-container--technology > .number-indicators {
+    flex-direction: column;
   }
 }
 
