@@ -1,15 +1,16 @@
-export const DotIndicators = () => {
+import { LinkButton } from '../LinkButton';
+
+export interface DotIndicatorsProps {
+  dots: string[];
+}
+export const DotIndicators = ({ dots }: DotIndicatorsProps) => {
   return (
     <div className="dot-indicators flex">
-      <button aria-selected="true">
-        <span className="sr-only">Slide title</span>
-      </button>
-      <button aria-selected="false">
-        <span className="sr-only">Slide title</span>
-      </button>
-      <button aria-selected="false">
-        <span className="sr-only">Slide title</span>
-      </button>
+      {dots.map((dot) => (
+        <LinkButton key={dot} to={dot.toLowerCase()}>
+          <span className="sr-only">Slide title</span>
+        </LinkButton>
+      ))}
     </div>
   );
 };
