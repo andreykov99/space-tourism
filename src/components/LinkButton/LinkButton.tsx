@@ -2,7 +2,6 @@ import { ComponentProps } from 'react';
 import { useMatch, useNavigate } from 'react-router-dom';
 
 interface LinkButtonOwnProps {
-  children?: string;
   to: string;
 }
 
@@ -22,7 +21,7 @@ export const LinkButton = ({
       {...otherProps}
       onClick={() => navigate(to)}
     >
-      {children && children}
+      {children}
     </button>
   );
 };
