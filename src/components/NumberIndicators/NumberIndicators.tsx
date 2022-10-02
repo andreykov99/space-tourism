@@ -1,13 +1,16 @@
-import { useMatch, useNavigate } from 'react-router-dom';
+import { LinkButton } from '../LinkButton';
 
-export const NumberIndicators = () => {
-  const navigate = useNavigate();
-  const isSelected = !!useMatch(id);
+interface NumberIndicatorsProps {
+  tabs: string[];
+}
+export const NumberIndicators = ({ tabs }: NumberIndicatorsProps) => {
   return (
     <div className="number-indicators">
-      <button aria-selected={isSelected}>1</button>
-      <button aria-selected="false">2</button>
-      <button aria-selected="false">3</button>
+      {tabs.map((tab, index) => (
+        <LinkButton key={tab} to={tab}>
+          {index + 1}
+        </LinkButton>
+      ))}
     </div>
   );
 };
