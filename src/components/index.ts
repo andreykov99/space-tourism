@@ -2,7 +2,6 @@ export * from './NavBar';
 export * from './NavBarLink';
 export * from './Layout';
 export * from './TabList';
-export * from './TabButton';
 export * from './DestinationLayout';
 export * from './DestinationPage';
 export * from './CrewLayout';
