@@ -54,9 +54,7 @@ export const useData = () => {
     const [, page, name] = route.split('/');
     if (page === 'destination' || page === 'crew' || page === 'technology') {
       const pageDataArr = getPages(page);
-      let index = pageDataArr.findIndex(
-        (item) => item.name.toLowerCase() === name
-      );
+      let index = pageDataArr.findIndex((item) => item.name === name);
       if (index < 0) index = 0;
       return pageDataArr[index];
     }

@@ -7,7 +7,7 @@ export const DotIndicators = ({ dots }: DotIndicatorsProps) => {
   return (
     <div className="dot-indicators flex">
       {dots.map((dot) => (
-        <LinkButton key={dot} to={dot.toLowerCase()}>
+        <LinkButton key={dot} to={dot}>
           <span className="sr-only">Slide title</span>
         </LinkButton>
       ))}

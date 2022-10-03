@@ -13,7 +13,7 @@ export const TabList = ({ tabs }: TabListProps) => {
       {tabs.map((tab) => (
         <LinkButton
           key={tab}
-          to={tab.toLowerCase()}
+          to={tab}
           role="tab"
           aria-controls={`${tab.toLowerCase()}-tab`}
           className="uppercase ff-sans-cond text-accent letter-spacing-2"
