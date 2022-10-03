@@ -1,8 +1,11 @@
 import { Outlet } from 'react-router-dom';
+import { useBackground } from '../../hook';
 import { useData } from '../../hook/useData';
 import { TabList } from '../TabList';
 
 export const DestinationLayout = () => {
+  const { changeBg } = useBackground();
+  changeBg('destination');
   const { getTabs } = useData();
   return (
     <main className="grid-container grid-container--destination flow">

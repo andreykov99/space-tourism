@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { useData } from '../../hook';
+import { useBackground, useData } from '../../hook';
 import { DotIndicators } from '../DotIndicators';
 
 export const CrewLayout = () => {
   const { getTabs } = useData();
+  const { changeBg } = useBackground();
+  changeBg('crew');
   return (
     <main id="main" className="grid-container grid-container--crew flow">
       <h1 className="numbered-title">

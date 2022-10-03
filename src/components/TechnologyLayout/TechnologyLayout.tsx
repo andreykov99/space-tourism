@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { useData } from '../../hook';
+import { useBackground, useData } from '../../hook';
 import { NumberIndicators } from '../NumberIndicators';
 
 export interface TechnologyLayoutProps {}
 
 export const TechnologyLayout = ({}: TechnologyLayoutProps) => {
+  const { changeBg } = useBackground();
+  changeBg('technology');
   const { getTabs } = useData();
   return (
     <main className="grid-container grid-container--technology flow">
