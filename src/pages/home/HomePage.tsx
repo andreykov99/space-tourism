@@ -1,4 +1,8 @@
+import { useBackground } from '../../hook';
+
 export const HomePage = () => {
+  const { changeBg } = useBackground();
+  changeBg('home');
   return (
     <main className="grid-container grid-container--home">
       <div>
