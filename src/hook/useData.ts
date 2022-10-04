@@ -55,7 +55,8 @@ export const useData = () => {
     if (page === 'destination' || page === 'crew' || page === 'technology') {
       const pageDataArr = getPages(page);
       let index = pageDataArr.findIndex((item) => item.name === name);
-      if (index < 0) index = 0;
+      // this line fix error with empty page on index route
+      // if (index < 0) index = 0;
       return pageDataArr[index];
     }
     throw new Error(`page ${page} not found`);
