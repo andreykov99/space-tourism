@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useBackground } from '../../hook';
 
 export const HomePage = () => {
@@ -18,12 +19,12 @@ export const HomePage = () => {
         </p>
       </div>
       <div>
-        <a
-          href="#"
+        <Link
+          to="destination"
           className="large-button uppercase ff-serif text-dark bg-white"
         >
           Explore
-        </a>
+        </Link>
       </div>
     </main>
   );

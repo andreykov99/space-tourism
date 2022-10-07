@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { NavBarLink } from '../NavBarLink';
 import logo from './assets/logo.svg';
 
@@ -7,7 +8,9 @@ export const NavBar = () => {
   return (
     <header className="primary-header flex">
       <div>
-        <img src={logo} alt="space tourism logo" className="logo" />
+        <Link to="/">
+          <img src={logo} alt="space tourism logo" className="logo" />
+        </Link>
       </div>
       <button
         aria-controls="primary-navigation"
