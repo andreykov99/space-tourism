@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { withIndex } from '../../hoc/withIndex';
 import { useBackground, useData } from '../../hook';
 import { NumberIndicators } from '../NumberIndicators';
 
@@ -19,4 +20,4 @@ export const TechnologyLayout = ({}: TechnologyLayoutProps) => {
   );
 };
 
-export default TechnologyLayout;
+export default withIndex(TechnologyLayout);

@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
+import CrewLayout from './components/CrewLayout/CrewLayout';
+import DestinationLayout from './components/DestinationLayout/DestinationLayout';
+import TechnologyLayout from './components/TechnologyLayout/TechnologyLayout';
 import {
-  CrewLayout,
   CrewPage,
-  DestinationLayout,
   DestinationPage,
   Layout,
-  TechnologyLayout,
   TechnologyPage,
 } from './components';
+
 import { HomePage } from './pages';
 
 function App() {

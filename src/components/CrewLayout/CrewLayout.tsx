@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { withIndex } from '../../hoc/withIndex';
 import { useBackground, useData } from '../../hook';
 import { DotIndicators } from '../DotIndicators';
 
@@ -17,4 +18,4 @@ export const CrewLayout = () => {
   );
 };
 
-export default CrewLayout;
+export default withIndex(CrewLayout);
