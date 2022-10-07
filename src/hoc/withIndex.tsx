@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useData } from '../hook';
+import { pageTypes, useData } from '../hook';
 
 export const withIndex = (Component: React.ComponentType) => () => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export const withIndex = (Component: React.ComponentType) => () => {
   const [, page, tab] = location.pathname.split('/');
   const isIndex = !tab;
   const { getTabs } = useData();
-  const tabs = getTabs(page);
+  const tabs = getTabs(page as pageTypes);
   useEffect(() => {
     if (isIndex) navigate(tabs[0]);
   });

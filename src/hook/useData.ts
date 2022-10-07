@@ -30,7 +30,15 @@ export interface ITechnologyData {
   };
   description: string;
 }
-export type pageTypes = 'destination' | 'crew' | 'technology';
+
+enum Pages {
+  destination,
+  crew,
+  technology,
+}
+
+// export type pageTypes = 'destination' | 'crew' | 'technology';
+export type pageTypes = keyof typeof Pages;
 
 export interface IData {
   destination: IDestinationData[];
