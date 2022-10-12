@@ -344,7 +344,7 @@ select {
 
   .grid-container--technology {
     grid-template-columns:
-      minmax(1rem, 1fr) minmax(0, 10rem) minmax(0, 25rem) minmax(0, 25rem)
+      minmax(1rem, 1fr) minmax(0, 10rem) minmax(0, 32rem) minmax(0, 32rem)
       minmax(1rem, 1fr);
     justify-items: start;
     grid-template-areas:
@@ -353,7 +353,15 @@ select {
   }
 
   .grid-container--technology > picture {
-    max-width: 90%;
+    max-width: 100%;
+    justify-self: stretch;
+    align-self: normal;
+  }
+
+  .grid-container--technology > picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .grid-container--technology > .number-indicators {
@@ -657,8 +665,8 @@ select {
 .number-indicators > * {
   display: block;
   cursor: pointer;
-  height: 3em;
-  width: 3em;
+  height: 5em;
+  width: 5em;
   border-radius: 50%;
   background-color: transparent;
   border-color: hsl(var(--clr-white) / 0.25);
