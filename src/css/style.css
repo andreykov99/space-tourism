@@ -1,171 +1,8 @@
-/*-------------------*/
-/* Custom properties */
-/*-------------------*/
-:root {
-  /* colors */
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 0% 100%;
-
-  /* font-sizes */
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
-  --fs-800: 3.5rem;
-  --fs-700: 1.5rem;
-  --fs-600: 1rem;
-  --fs-500: 1rem;
-  --fs-400: 0.9375rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
-
-  /* font-families */
-  --ff-serif: 'Bellefair', serif;
-  --ff-sans-cond: 'Barlow Condensed', sans-serif;
-  --ff-sans-normal: 'Barlow', sans-serif;
-}
-
-@media (min-width: 35em) {
-  :root {
-    --fs-800: 5rem;
-    --fs-700: 2.5rem;
-    --fs-600: 1.5rem;
-    --fs-500: 1.25rem;
-    --fs-400: 1rem;
-  }
-}
-
-@media (min-width: 45em) {
-  :root {
-    /* font-sizes */
-    --fs-800: 6.25rem;
-    --fs-700: 3.5rem;
-    --fs-600: 2rem;
-    --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
-  }
-}
-
-/*---------------*/
-/*     reset     */
-/*---------------*/
-
-/* border-box */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Reset margins */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-figure,
-picture {
-  margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  font-weight: 400;
-}
-
-/* set up the body */
-body {
-  font-family: var(--ff-sans-normal);
-  font-size: var(--fs-400);
-  color: hsl(var(--clr-white));
-  background-color: hsl(var(--clr-dark));
-  line-height: 1.5;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-#root {
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  min-height: 100vh;
-}
-
-/* make images easier to work with */
-img,
-picutre {
-  max-width: 100%;
-  display: block;
-}
-
-/* make form elements easier to work with */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* remove animations for people who've turned them off */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/*-----------------*/
-/* Utility classes */
-/*-----------------*/
-
-/* general */
-
-.d-block {
-  display: block;
-}
-
-.flex {
-  display: flex;
-  gap: var(--gap, 1rem);
-}
-
-.grid {
-  display: grid;
-  gap: var(--gap, 1rem);
-}
-
-.flow > *:where(:not(:first-child)) {
-  margin-top: var(--flow-space, 1rem);
-}
-
-.container {
-  padding-inline: 2em;
-  margin-inline: auto;
-  max-width: 80rem;
-}
-
-.grid-container {
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
-}
-
-.grid-container p:not([class]) {
-  max-width: 50ch;
-}
-
-.numbered-title {
-  grid-area: title;
-}
+@import 'variables.css';
+@import 'reset.css';
+@import 'typography.css';
+@import 'colors.css';
+@import 'utility.css';
 
 /* destination layout */
 
@@ -238,10 +75,10 @@ select {
 .grid-container--technology {
   --flow-space: 2rem;
   grid-template-areas:
-    'title'
-    'image'
-    'tabs'
-    'content';
+    '. title .'
+    'image image image'
+    '. tabs .'
+    '. content .';
 }
 
 .grid-container--technology > picture {
@@ -343,122 +180,42 @@ select {
   }
 
   .grid-container--technology {
-    grid-template-columns:
-      minmax(1rem, 1fr) minmax(0, 10rem) minmax(0, 32rem) minmax(0, 32rem)
-      minmax(1rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 10rem) minmax(0, 32rem) minmax(
+        0,
+        40vw
+      );
     justify-items: start;
     grid-template-areas:
-      '. title title title .'
-      '. tabs content image image';
+      '. title title title'
+      '. tabs content image';
+    padding-right: 0;
+    padding-bottom: 6rem;
   }
 
   .grid-container--technology > picture {
     max-width: 100%;
     justify-self: stretch;
     align-self: normal;
+    position: relative;
   }
 
   .grid-container--technology > picture img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 
   .grid-container--technology > .number-indicators {
     flex-direction: column;
+    font-size: var(--fs-600);
   }
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* added line */
-  border: 0;
-}
-
-/* colors */
-
-.bg-dark {
-  background-color: hsl(var(--clr-dark));
-}
-.bg-accent {
-  background-color: hsl(var(--clr-light));
-}
-.bg-white {
-  background-color: hsl(var(--clr-white));
-}
-
-.text-dark {
-  color: hsl(var(--clr-dark));
-}
-.text-accent {
-  color: hsl(var(--clr-light));
-}
-.text-white {
-  color: hsl(var(--clr-white));
-}
-
-/* typography */
-
-.ff-serif {
-  font-family: var(--ff-serif);
-}
-.ff-sans-cond {
-  font-family: var(--ff-sans-cond);
-}
-.ff-sans-normal {
-  font-family: var(--ff-sans-normal);
-}
-
-.letter-spacing-1 {
-  letter-spacing: 4.75px;
-}
-.letter-spacing-2 {
-  letter-spacing: 2.7px;
-}
-.letter-spacing-3 {
-  letter-spacing: 2.35px;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.fs-900 {
-  font-size: var(--fs-900);
-}
-.fs-800 {
-  font-size: var(--fs-800);
-}
-.fs-700 {
-  font-size: var(--fs-700);
-}
-.fs-600 {
-  font-size: var(--fs-600);
-}
-.fs-500 {
-  font-size: var(--fs-500);
-}
-.fs-400 {
-  font-size: var(--fs-400);
-}
-.fs-300 {
-  font-size: var(--fs-300);
-}
-.fs-200 {
-  font-size: var(--fs-200);
-}
-
-.fs-900,
-.fs-800,
-.fs-700,
-.fs-600 {
-  line-height: 1.1;
+.numbered-title {
+  grid-area: title;
 }
 
 .numbered-title {
@@ -665,18 +422,17 @@ select {
 .number-indicators > * {
   display: block;
   cursor: pointer;
-  height: 5em;
-  width: 5em;
+  height: 2.5em;
+  width: 2.5em;
   border-radius: 50%;
   background-color: transparent;
   border-color: hsl(var(--clr-white) / 0.25);
-  color: hsl(var(--clr-white) / 0.25);
+  color: hsl(var(--clr-white));
 }
 
 .number-indicators > *:hover,
 .number-indicators > *:focus {
-  border-color: hsl(var(--clr-white) / 0.5);
-  color: hsl(var(--clr-white) / 0.5);
+  border-color: hsl(var(--clr-white));
 }
 
 .number-indicators > [aria-selected='true'] {
