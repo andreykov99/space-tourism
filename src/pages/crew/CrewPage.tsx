@@ -1,7 +1,5 @@
-import React from 'react';
-
-const CrewPage = () => {
-  return <div>CrewPage</div>;
+export const CrewPage = () => {
+  return <main>CrewPage</main>;
 };
 
 export default CrewPage;
