@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const HomePage = () => {
   return (
     <main className="grid-container grid-container--home">
@@ -14,12 +16,12 @@ export const HomePage = () => {
         </p>
       </div>
       <div>
-        <a
-          href="#"
+        <Link
+          to="destination"
           className="large-button uppercase ff-serif text-dark bg-white"
         >
           Explore
-        </a>
+        </Link>
       </div>
     </main>
   );
