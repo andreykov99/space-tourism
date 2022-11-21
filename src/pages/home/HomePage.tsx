@@ -1,6 +1,9 @@
+import { useBackground } from '../../hook';
 import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
+  const { changeBg } = useBackground();
+  changeBg('home');
   return (
     <main className="grid-container grid-container--home">
       <div>

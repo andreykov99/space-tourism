@@ -1,6 +1,9 @@
 import { Outlet } from 'react-router-dom';
+import { useBackground } from '../../hook';
 
 export const DestinationLayout = () => {
+  const { changeBg } = useBackground();
+  changeBg('destination');
   return (
     <main className="grid-container grid-container--destination flow">
       <h1 className="numbered-title">
