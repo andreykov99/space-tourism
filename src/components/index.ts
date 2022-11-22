@@ -5,3 +5,4 @@ export * from './DestinationLayout';
 export * from './CrewLayout';
 export * from './TechnologyLayout';
 export * from './LinkButton';
+export * from './TabList';
