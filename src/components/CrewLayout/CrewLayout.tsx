@@ -1,7 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { useBackground } from '../../hook';
+import { withIndex } from '../../hoc/withIndex';
+import { useBackground, useData } from '../../hook';
+import { DotIndicators } from '../DotIndicators';
 
 export const CrewLayout = () => {
+  const { getTabs } = useData();
   const { changeBg } = useBackground();
   changeBg('crew');
   return (
@@ -9,10 +12,10 @@ export const CrewLayout = () => {
       <h1 className="numbered-title">
         <span aria-hidden="true">02</span> Meet your crew
       </h1>
-      {/* <DotIndicators /> */}
+      <DotIndicators dots={getTabs('crew')} />
       <Outlet />
     </main>
   );
 };
 
-export default CrewLayout;
+export default withIndex(CrewLayout);

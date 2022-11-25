@@ -1,20 +1,21 @@
 import { Outlet } from 'react-router-dom';
-import { useBackground } from '../../hook';
+import { withIndex } from '../../hoc/withIndex';
+import { useBackground, useData } from '../../hook';
+import { NumberIndicators } from '../NumberIndicators';
 
-export interface TechnologyLayoutProps {}
-
-export const TechnologyLayout = ({}: TechnologyLayoutProps) => {
+export const TechnologyLayout = () => {
   const { changeBg } = useBackground();
   changeBg('technology');
+  const { getTabs } = useData();
   return (
     <main className="grid-container grid-container--technology flow">
       <h1 className="numbered-title">
         <span aria-hidden="true">03</span>Space launch 101
       </h1>
-      {/* <NumberIndicators /> */}
+      <NumberIndicators tabs={getTabs('technology')} />
       <Outlet />
     </main>
   );
 };
 
-export default TechnologyLayout;
+export default withIndex(TechnologyLayout);

@@ -1,10 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import {
-  Layout,
-  CrewLayout,
-  DestinationLayout,
-  TechnologyLayout,
-} from './components';
+import CrewLayout from './components/CrewLayout/CrewLayout';
+import DestinationLayout from './components/DestinationLayout/DestinationLayout';
+import TechnologyLayout from './components/TechnologyLayout/TechnologyLayout';
+import { Layout } from './components';
 import { HomePage, CrewPage, DestinationPage, TechnologyPage } from './pages';
 
 function App() {
