@@ -6,3 +6,5 @@ export * from './CrewLayout';
 export * from './TechnologyLayout';
 export * from './LinkButton';
 export * from './TabList';
+export * from './NumberIndicators';
+export * from './DotIndicators';
