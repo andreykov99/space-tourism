@@ -1,4 +1,4 @@
-FROM node:16-alpine as development
+FROM node:18-alpine as development
 
 WORKDIR /app
 
@@ -24,6 +24,7 @@ FROM development as builder
 
 RUN npm run build
 
-FROM nginx:1.21-alpine as production
+FROM nginx:1.25.2-alpine as production
 
 COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx/default.conf /etc/nginx/conf.d/
